@@ -178,10 +178,10 @@ const SectionView = React.memo(function SectionView({
           <button
             onClick={onToggle}
             title={studied ? "علامت‌گذاری به عنوان مرورنشده" : "علامت‌گذاری به عنوان مرورشده"}
-            className={`no-print ms-auto inline-flex cursor-pointer items-center gap-1.5 rounded-xl border-2 px-3 py-1.5 text-xs font-black transition-all ${
+            className={`no-print ms-auto inline-flex cursor-pointer items-center gap-1.5 rounded-xl neo-border-sm px-3 py-1.5 text-xs font-black transition-all ${
               studied
-                ? "border-line bg-emerald-400/20 text-emerald-800 dark:text-emerald-300 shadow-[1.5px_1.5px_0px_var(--line)]"
-                : "border-line bg-card text-soft shadow-[1.5px_1.5px_0px_var(--line)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[2.5px_2.5px_0px_var(--line)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                ? "bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 neo-shadow-xs"
+                : "bg-card text-soft neo-shadow-xs hover:bg-card2"
             }`}
           >
             {studied ? <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400" /> : <Circle size={13} />}
@@ -265,13 +265,13 @@ export const NotesView = React.memo(function NotesView({
     <div className="mx-auto max-w-[860px] px-3 pb-28 pt-4 md:px-6 md:pt-6">
       <Hero onJump={onJump} />
 
-      {chapters.map((c) => {
+      {chapters.map((c, cIdx) => {
         const secs = sectionsByChapter(c.id);
         return (
           <div key={c.id} id={`chapter-${c.id}`} className="scroll-mt-header">
-            {/* chapter divider */}
-            <div className="mb-6 sm:mb-8 mt-10 sm:mt-14 first:mt-0">
-              <div className="rounded-3xl border-2 border-line bg-card p-4 sm:p-6 md:p-8 shadow-xs hover:shadow-sm transition-all duration-200">
+            {/* chapter divider with clear generous breathing room */}
+            <div className={`mb-8 sm:mb-10 ${cIdx === 0 ? "mt-6 sm:mt-8" : "mt-24 sm:mt-32 pt-8 sm:pt-10 border-t-2 border-dashed border-line/40"}`}>
+              <div className="rounded-3xl neo-border bg-card p-5 sm:p-7 md:p-8 neo-shadow">
                 <div className="flex flex-wrap items-center gap-3">
                   <span
                     className={`flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-line text-lg font-black shadow-[2px_2px_0px_var(--line)] ${hueChip[c.hue]}`}
