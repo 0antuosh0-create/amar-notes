@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --color-paper: var(--bg);
+  --color-card: var(--card);
+  --color-card2: var(--card2);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-gold: var(--gold);
+  --color-pop-blue: var(--pop-blue);
+  --color-pop-lime: var(--pop-lime);
+  --color-pop-purple: var(--pop-purple);
+  --color-pop-orange: var(--pop-orange);
+}
+
+/* ------------------------------------------------------------------ */
+/*  LIGHT MODE: Vibrant Neo-Brutalist Architectural Canvas             */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --card2: #f1f5f9;
+  --ink: #09090b;
+  --soft: #27272a;
+  --faint: #52525b;
+  --line: #09090b;
+  --line-soft: #cbd5e1;
+
+  --accent: #2563eb;          /* Electric Royal Blue */
+  --accent-hover: #1d4ed8;
+  --accent-ink: #ffffff;
+  --gold: #f59e0b;            /* Amber Gold */
+
+  --pop-blue: #3b82f6;
+  --pop-lime: #10b981;
+  --pop-purple: #8b5cf6;
+  --pop-orange: #f97316;
+  --pop-pink: #ec4899;
+
+  --math: #09090b;
+
+  /* Atmospheric Gradient Mesh Orbs */
+  --orb-1: rgba(37, 99, 235, 0.12);
+  --orb-2: rgba(245, 158, 11, 0.10);
+  --orb-3: rgba(139, 92, 246, 0.08);
+
+  --shadow-xs: 2px 2px 0px #09090b;
+  --shadow-sm: 3px 3px 0px #09090b;
+  --shadow-md: 5px 5px 0px #09090b;
+  --shadow-lg: 7px 7px 0px #09090b;
+  --shadow-xl: 9px 9px 0px #09090b;
+
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------ */
+/*  DARK MODE: Deep Cyber-Obsidian with Electric Neon Brutalism       */
+/* ------------------------------------------------------------------ */
+.dark {
+  --bg: #090d16;
+  --card: #111827;
+  --card2: #1e293b;
+  --ink: #f8fafc;
+  --soft: #cbd5e1;
+  --faint: #94a3b8;
+  --line: #38bdf8;
+  --line-soft: #334155;
+
+  --accent: #38bdf8;          /* Electric Cyan */
+  --accent-hover: #0ea5e9;
+  --accent-ink: #041019;
+  --gold: #facc15;
+
+  --pop-blue: #60a5fa;
+  --pop-lime: #34d399;
+  --pop-purple: #c084fc;
+  --pop-orange: #fb923c;
+  --pop-pink: #f472b6;
+
+  --math: #f8fafc;
+
+  --orb-1: rgba(56, 189, 248, 0.15);
+  --orb-2: rgba(250, 204, 21, 0.12);
+  --orb-3: rgba(168, 85, 247, 0.14);
+
+  --shadow-xs: 2px 2px 0px #000000;
+  --shadow-sm: 3px 3px 0px #000000;
+  --shadow-md: 5px 5px 0px #000000;
+  --shadow-lg: 7px 7px 0px #000000;
+  --shadow-xl: 9px 9px 0px #000000;
+
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv01", "ss01", "ss02";
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--ink);
+  overflow-x: clip;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+::selection {
+  background: #facc15;
+  color: #000000;
+}
+
+/* ---------- Focus & Accessible States ---------- */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Neo-Brutalist Component Utilities ---------- */
+.neo-border {
+  border: 2.5px solid var(--line);
+}
+
+.neo-border-sm {
+  border: 2px solid var(--line);
+}
+
+.neo-border-thick {
+  border: 3.5px solid var(--line);
+}
+
+.neo-shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+.neo-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.neo-shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.neo-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.neo-card {
+  background-color: var(--card);
+  border: 2.5px solid var(--line);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.neo-btn {
+  border: 2.5px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  font-weight: 800;
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.12s ease;
+}
+
+.neo-btn:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: var(--shadow-md);
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.neo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0px var(--line);
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+}
+
+.card-shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.scroll-mt-header {
+  scroll-margin-top: 7rem;
+}
+
+/* ---------- KaTeX in RTL / Persian context ---------- */
+.math-inline {
+  direction: ltr !important;
+  unicode-bidi: isolate;
+  display: inline-block;
+  vertical-align: -0.16em;
+  margin: 0 0.2rem;
+  line-height: 1;
+}
+
+.math-inline .katex {
+  font-size: 1.08em;
+  line-height: 1;
+}
+
+.math-block {
+  direction: ltr !important;
+  text-align: center;
+  margin: 0.4rem 0;
+  padding: 0.4rem 0;
+}
+
+.math-block .katex-display {
+  margin: 0.35rem 0;
+}
+
+.math-block .katex {
+  font-size: 1.18em;
+}
+
+.katex {
+  color: var(--math);
+  font-weight: 500;
+}
+
+.katex .mtext,
+.katex .text,
+.katex .katex-text {
+  font-family: var(--font-sans) !important;
+  font-weight: 600;
+}
+
+.katex-html {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+/* ---------- Neo-Brutalist Polished Scrollbars ---------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) var(--card2);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--card2);
+  border: 1.5px solid var(--line-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border: 1.5px solid var(--card2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; background-image: none !important; }
+  .card-shadow, .neo-card, .neo-btn { box-shadow: none !important; border: 1.5px solid #000 !important; }
+  aside, header, footer { display: none !important; }
+  main { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  .katex { color: black !important; }
+}

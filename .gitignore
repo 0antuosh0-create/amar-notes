@@ -1,0 +1,6 @@
+node_modules
+dist
+ocr_pages
+*.png
+.DS_Store
+*.log
