@@ -125,13 +125,29 @@ export const DefinitionBlock = React.memo(function DefinitionBlock({
           <T text={block.title} />
         </span>
       </div>
-      <div className="space-y-3 px-4 py-3.5 sm:px-5 sm:py-4">
+      <div className="space-y-3.5 px-4 py-3.5 sm:px-5 sm:py-4">
         {block.body && (
           <p className="text-[15px] leading-8 text-soft font-medium">
             <T text={block.body} />
           </p>
         )}
         {block.math && <MathLines lines={block.math} />}
+
+        {/* Intuitive discrimination / Hint */}
+        {block.hint && (
+          <div className="rounded-xl neo-border-sm bg-blue-500/10 p-3 text-xs leading-6 font-bold text-ink">
+            <span className="font-black text-accent block mb-1">💡 تمایز و درک مفهومی:</span>
+            <T text={block.hint} />
+          </div>
+        )}
+
+        {/* Micro intuitive Example */}
+        {block.example && (
+          <div className="rounded-xl neo-border-sm bg-card2/80 p-3 text-xs leading-6 font-bold text-soft border-s-4 border-s-gold">
+            <span className="font-black text-ink block mb-0.5">🔍 مثال شهودی و ملموس:</span>
+            <T text={block.example} />
+          </div>
+        )}
       </div>
     </div>
   );

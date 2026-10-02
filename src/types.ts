@@ -33,7 +33,7 @@ export interface Chapter {
 export type Block =
   | { kind: "text"; text: string }
   | { kind: "theorem"; label: string; title?: string; body?: string; math?: string[] }
-  | { kind: "definition"; label: string; title: string; body?: string; math?: string[] }
+  | { kind: "definition"; label: string; title: string; body?: string; math?: string[]; hint?: string; example?: string }
   | { kind: "formula"; label?: string; math: string; note?: string; star?: boolean }
   | { kind: "note"; variant: "tip" | "warn" | "info"; title?: string; text: string; math?: string[] }
   | { kind: "table"; caption?: string; headers: string[]; rows: string[][] }
